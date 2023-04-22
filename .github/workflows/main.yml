@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set commit id
-        run: echo "commit_id=${${{ github.sha }}:0:8}" >> $GITHUB_ENV
+        run: |
+          commit_id=$(echo ${{ github.sha }} | cut -c1-8)
+          echo "commit_id=${commit_id}" >> $GITHUB_ENV
           
       - name: Get commit id
         run: echo ${{ env.github.sha }}
