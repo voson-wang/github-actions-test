@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Set commit id
         run: |
-          echo "commit_id=${{ github.sha }}" >> $GITHUB_ENV
+          echo "commit_id=${{ github.sha }}:0:8" >> $GITHUB_ENV
           
       - name: Get commit id
         run: echo ${{ env.github.sha }}
